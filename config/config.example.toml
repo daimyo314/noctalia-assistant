@@ -1,0 +1,38 @@
+# Noctalia Assistant — backend configuration (~/.config/noctalia-assistant/config.toml)
+# Panel options (thinking, notifications) live in Noctalia: Settings → Plugins → Assistant.
+# Every key is optional; these are the defaults. An API key is only needed if your server asks for one.
+# It lives in secrets.toml next to this file (api_key = "sk-...", mode 600; the panel writes it for you),
+# or in the LITELLM_API_KEY environment variable, or a file named by api_key_file below.
+
+[llm]
+# Your model server. Any OpenAI-compatible endpoint works; "/v1" is appended automatically. Examples:
+#   LiteLLM proxy      http://localhost:4000
+#   Ollama             http://localhost:11434
+#   vLLM               http://localhost:8000
+#   llama.cpp server   http://localhost:8080
+#   LM Studio          http://localhost:1234
+#   OpenAI             https://api.openai.com
+# Easiest: set it in the panel (click the model name → Server and API key).
+base_url = "http://localhost:4000"
+model = ""                                   # empty = first model the server lists; short names like "qwen3.6" resolve to the server's ids
+fallback_models = []                         # shown first in the model menu, e.g. ["qwen3.6", "qwen3.8"]
+api_key_env = "LITELLM_API_KEY"
+api_key_file = ""
+temperature = 0.4
+max_tokens = 3000
+timeout_seconds = 180
+max_tool_rounds = 8
+show_reasoning = true                        # Qwen "thinking" shown collapsed under the answer
+history_char_budget = 24000                  # how much prior conversation is sent back as context
+# Extra JSON merged into every request. To turn Qwen3 thinking off through vLLM:
+# extra_body = { chat_template_kwargs = { enable_thinking = false } }
+
+[tools]
+enabled = true
+enable_web = true                            # fetch_docs on the documentation allowlist below
+command_timeout = 20
+output_limit = 12000
+allowed_hosts = [
+  "wiki.cachyos.org", "cachyos.org", "wiki.archlinux.org", "archlinux.org", "aur.archlinux.org", "man.archlinux.org",
+  "wiki.hypr.land", "hypr.land", "docs.noctalia.dev", "noctalia.dev", "quickshell.org", "github.com", "raw.githubusercontent.com",
+]

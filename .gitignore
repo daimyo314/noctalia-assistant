@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Personal data that must never be published (normally lives in ~/.config and ~/.local/state anyway)
+secrets.toml
+.env
+*.db
+*.sqlite
+*.sqlite3
+
+# Backups made by install.sh
+*.bak.noctalia-assistant.*
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Logs and scratch output
+*.log
+/tmp/

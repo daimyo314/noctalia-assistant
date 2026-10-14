@@ -1,0 +1,140 @@
+{
+  "title": "Assistant",
+  "header": {
+    "no_model": "No model selected",
+    "model_tip": "Model and connection",
+    "new": "New chat",
+    "history": "Conversations",
+    "pin": "Pin: keep open while you work",
+    "unpin": "Unpin: close when clicking elsewhere",
+    "close": "Close (Esc)",
+    "no_connection": "Not connected to a model server. Click to set it up."
+  },
+  "welcome": {
+    "title": "Your CachyOS desktop assistant",
+    "body": "Ask about Hyprland, Noctalia, packages, or anything that works differently from Windows. I can check this computer's real settings and open shell panels for you."
+  },
+  "suggest": {
+    "shortcuts": "What are my keyboard shortcuts?",
+    "install": "How do I install software here?",
+    "windows": "Where are Task Manager and Control Panel?",
+    "lightmode": "Switch the desktop to light mode",
+    "workspaces": "Explain workspaces and tiling",
+    "nvidia": "Is my NVIDIA driver working?"
+  },
+  "composer": {
+    "placeholder": "Ask about CachyOS, Hyprland or Noctalia…",
+    "send": "Send (Enter)",
+    "stop": "Stop answering",
+    "hint": "Enter sends · Shift+Enter adds a line · Esc closes · Super+I toggles"
+  },
+  "status": {
+    "thinking": "Thinking",
+    "sending": "Sending",
+    "stopping": "Stopping",
+    "tool": {
+      "run_command": "Checking this computer",
+      "noctalia_action": "Doing it",
+      "read_file": "Reading your configuration",
+      "knowledge": "Looking it up",
+      "fetch_docs": "Reading the documentation",
+      "other": "Working"
+    }
+  },
+  "tool": {
+    "run_command": "Ran a read-only command",
+    "noctalia_action": "Noctalia action",
+    "read_file": "Read a file",
+    "knowledge": "Searched the built-in guide",
+    "fetch_docs": "Fetched documentation",
+    "other": "Tool"
+  },
+  "msg": {
+    "thinking_now": "Thinking…",
+    "thought": "Thought · about {n} tokens",
+    "stopped": "Stopped",
+    "copy": "Copy answer",
+    "hidden": "{n} earlier messages are in the conversation history"
+  },
+  "code": {
+    "code": "code",
+    "copy": "Copy",
+    "run": "Run in a terminal (asks before running)"
+  },
+  "models": {
+    "title": "Model & connection",
+    "choose": "Choose model",
+    "refresh": "Refresh model list",
+    "none": "No models listed yet.",
+    "fallback": "The server's model list isn't available yet, so these are the configured defaults.",
+    "error": "Server: {detail}",
+    "connection": "Connection",
+    "endpoint": "Server: {url}",
+    "key_ok": "API key saved",
+    "settings": "Plugin settings",
+    "key_none": "No API key saved (fine if your server needs none)",
+    "not_connected": "Not connected"
+  },
+  "history": {
+    "title": "Conversations",
+    "empty": "No conversations yet.",
+    "untitled": "Untitled",
+    "meta": "{n} messages · {when}",
+    "confirm": "Delete this conversation?"
+  },
+  "common": {
+    "back": "Back",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "widget": {
+    "tooltip": "Assistant · Super+I",
+    "busy": "Assistant is answering…"
+  },
+  "launcher": {
+    "open": "Open the assistant",
+    "open_sub": "Type a question after /ask to send it",
+    "ask_sub": "Ask the assistant"
+  },
+  "notify": {
+    "title": "Assistant"
+  },
+  "error": {
+    "backend": "The assistant backend did not respond ({path}). {detail}",
+    "timeout": "It timed out.",
+    "request": "Could not hand the message to the backend.",
+    "start": "Could not start the backend process.",
+    "exited": "The backend stopped unexpectedly (exit code {code}).",
+    "stalled": "No response for five minutes, so I stopped waiting."
+  },
+  "settings": {
+    "show_thinking": {
+      "label": "Show model thinking",
+      "description": "Show the model's reasoning, collapsed above each answer."
+    },
+    "notify_when_closed": {
+      "label": "Notify when an answer finishes",
+      "description": "Show a notification if an answer completes while the panel is closed."
+    },
+    "backend": {
+      "label": "Backend command",
+      "description": "Path to the noctalia-assistant program that talks to the model."
+    }
+  },
+  "connect": {
+    "title": "Connect to your model server",
+    "body": "Any OpenAI-compatible server works: LiteLLM, Ollama, vLLM, llama.cpp, LM Studio, OpenAI and others. Enter its address, and an API key if it needs one.",
+    "server": "Server address",
+    "key": "API key",
+    "key_placeholder": "Leave empty if your server needs none",
+    "key_saved": "Saved. Type a new key to replace it",
+    "save": "Save",
+    "saving": "Saving and connecting…",
+    "connected": "Connected. {n} models available.",
+    "server_error": "Could not save the address: {detail}",
+    "key_error": "Could not save the key: {detail}",
+    "where": "Saved on this computer in ~/.config/noctalia-assistant/. The key file is readable only by you.",
+    "fix": "Fix connection",
+    "change": "Server and API key"
+  }
+}

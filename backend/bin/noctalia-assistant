@@ -1,0 +1,11 @@
+#!/bin/sh
+# Launcher for the Noctalia Assistant backend. Resolves its own real location so it can be symlinked anywhere.
+self="$0"
+while [ -L "$self" ]; do
+  target=$(readlink "$self")
+  case "$target" in /*) self="$target" ;; *) self="$(dirname "$self")/$target" ;; esac
+done
+here=$(cd "$(dirname "$self")/.." && pwd)
+export PYTHONPATH="$here${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONUNBUFFERED=1
+exec python3 -m noctalia_assistant "$@"

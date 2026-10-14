@@ -1,0 +1,77 @@
+# Noctalia Assistant — a desktop assistant for CachyOS + Hyprland + Noctalia, native to Noctalia 5.
+# The UI is this plugin; the agent is the Python backend (~/.local/bin/noctalia-assistant), which the
+# service runs once per message and streams back as JSON lines.
+
+id          = "dadmin/assistant"
+name        = "Assistant"
+version     = "0.2.0"
+plugin_api  = 32
+author      = "dadmin"
+license     = "PolyForm-Noncommercial-1.0.0"
+icon        = "sparkles"
+description = "Ask about CachyOS, Hyprland and Noctalia. Knows this machine's real setup; powered by your LiteLLM models."
+tags        = ["ai", "assistant", "help", "panel", "launcher"]
+dependencies = ["python3"]
+
+# ── Plugin settings (Settings → Plugins → Assistant, gear icon) ─────────────────────────────────
+[[setting]]
+key             = "show_thinking"
+type            = "bool"
+label_key       = "settings.show_thinking.label"
+description_key = "settings.show_thinking.description"
+default         = true
+
+[[setting]]
+key             = "notify_when_closed"
+type            = "bool"
+label_key       = "settings.notify_when_closed.label"
+description_key = "settings.notify_when_closed.description"
+default         = true
+
+[[setting]]
+key             = "backend"
+type            = "file"
+label_key       = "settings.backend.label"
+description_key = "settings.backend.description"
+default         = "~/.local/bin/noctalia-assistant"
+advanced        = true
+
+# ── Entries ────────────────────────────────────────────────────────────────────────────────────
+# The brain: owns the conversation, runs the backend per message, publishes state to the panels.
+# Super + I / the .desktop entry call:  noctalia msg plugin dadmin/assistant:brain all toggle
+[[service]]
+id    = "brain"
+entry = "service.luau"
+
+# The chat panel: a full-height sheet on the right edge that closes when you click elsewhere.
+[[panel]]
+id             = "chat"
+entry          = "chat.luau"
+width          = 520
+height         = "fill"
+placement      = "floating"
+position       = "center_right"
+keyboard_focus = "exclusive"
+
+# The same chat, pinned: stays open while you work in other windows (pin button in the header).
+[[panel]]
+id                       = "pinned"
+entry                    = "pinned.luau"
+width                    = 520
+height                   = "fill"
+position                 = "center_right"
+persistent               = true
+dismiss_on_outside_click = false
+keyboard_focus           = "on_demand"
+
+# Bar button: click toggles the panel; it lights up while an answer is being written.
+[[widget]]
+id    = "button"
+entry = "widget.luau"
+
+# Launcher: type  /ask how do I change my wallpaper
+[[launcher_provider]]
+id     = "ask"
+entry  = "launcher.luau"
+prefix = "ask"
+glyph  = "sparkles"

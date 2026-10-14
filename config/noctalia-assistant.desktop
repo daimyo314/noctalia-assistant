@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Assistant
+GenericName=Desktop assistant
+Comment=Ask about CachyOS, Hyprland and Noctalia (Super + I)
+Exec=noctalia msg plugin dadmin/assistant:brain all toggle
+Icon=noctalia
+Terminal=false
+Categories=Utility;System;
+Keywords=assistant;help;ai;chat;cachyos;hyprland;noctalia;
+StartupNotify=false
