@@ -5,6 +5,31 @@ right edge (`Super + I`), themed and animated by Noctalia itself, backed by a fo
 server of your choice and knows *your* machine (its real keybinds, monitors, packages and Noctalia configuration).
 It is built to help people moving from Windows.
 
+## A quick look
+
+<table>
+  <tr>
+    <td width="33%"><img src="docs/screenshots/welcome.png" width="100%" alt="The assistant panel open on the right edge of the screen, with suggested questions"></td>
+    <td width="33%"><img src="docs/screenshots/working.png" width="100%" alt="The assistant mid-answer: chips for the commands it ran, its reasoning expanded, and the reply starting to stream"></td>
+    <td width="33%"><img src="docs/screenshots/answer.png" width="100%" alt="A finished answer to 'Is my NVIDIA driver working?', based on the checks it ran"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>1. Ask</b></td>
+    <td align="center"><b>2. It checks your system</b></td>
+    <td align="center"><b>3. An answer based on what it found</b></td>
+  </tr>
+</table>
+
+1. **Ask.** `Super + I` opens the panel on the right edge. Noctalia draws it, so it matches your theme. Suggested
+   questions help you start. The name under the title is the connected model; click it to switch models or servers.
+2. **It checks your system.** Before answering, it runs read-only checks. Each chip is one command: a terminal icon
+   means it ran, and a warning icon means it was refused or failed, so it tried another way. Click **Thought** to see
+   its reasoning, and the stop button to cancel.
+3. **An answer based on what it found.** Here it confirmed the driver from the loaded kernel modules and `nvidia-smi`,
+   instead of giving generic advice.
+
+## How it works
+
 ```
  Super + I ─► noctalia msg plugin dadmin/assistant:brain all toggle
                          │
